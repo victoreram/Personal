@@ -1,4 +1,4 @@
-
+#from ID3 import *
 import csv
 import os
 import time_class as t
@@ -9,8 +9,8 @@ from mutagen.mp3 import MP3
 files = os.listdir(os.curdir)
 master = open('MASTER PLAYLIST - Playlist.csv') 
 m_playlist = csv.reader(master)
-    
-with open('add_to_master.csv', 'w') as csvfile:
+to_add_spreadsheet_filename = 'add_to_master.csv'
+with open(to_add_spreadsheet_filename, 'w') as csvfile:
     header = m_playlist.__next__()
     fieldnames = header
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames, lineterminator = '\n')
@@ -41,19 +41,19 @@ with open('add_to_master.csv', 'w') as csvfile:
                 album = song['album'][0]
             except:
                 album = ''
-                            
-            try:
-                genre = song['genre'][0]
-            except:
-                genre = ''
+
                 
             try:
-                year = song['year'][0]
+                year = song['Year'][0]
             except:
                 year = '2017'
+                
+            
             #print(title, artist, album, length)
             writer.writerow({'Title': title, 'Band': artist, 'Album': album, 
-                             'Plays': '0', 'Riv': 'x',
-                             'Time': length, 'Genre': genre, 'Year': year} )
+                             'Plays': '0', 
+                             'Time': length, 'Year': year} )
+            print("Inputting {} - {}...".format(artist,title))
 
 csvfile.close()
+print("Songs are in {}".format(to_add_spreadsheet_filename))
