@@ -23,15 +23,22 @@ html = r.text
 # Create a BeautifulSoup object from the HTML: soup
 soup = BeautifulSoup(html, "lxml")
 
-# Extract band name and info
+'''
+Extract band info into a list. Information corresponds to the indices:
+0: Country of Origin
+1: Current Location
+2: Status (Active, Inactive, On Hold)
+3: Formed in
+4: Genre
+5: Lyrical Themes
+6: Label
+'''
 band = soup.title.string.replace(" - Encyclopaedia Metallum: The Metal Archives", "")
-#print(band.string)
-#prinstring.replace(" - Encyclopaedia Metallum: The Metal Archives", "")
 band_info = soup.find_all("dd")
 band_info = [i.string for i in band_info]
 band_info.pop()
 if band in bands:
-    band = band + band_info[0]
+    band = band + "(" + band_info[0] + ")"
     bands[band] = band_info
 else:
     bands[band] = band_info
