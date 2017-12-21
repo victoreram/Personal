@@ -19,7 +19,7 @@ SEARCH_BY_BAND = "&bandName="
 SEARCH_BY_ALBUM = "&releaseTitle="
 SEARCH_BY_LYRICS = "&lyrics="
 SEARCH_BY_GENRE = "&genre="
-SEARCH_TYPE = "#song"
+SEARCH_TYPE = ""
 
 "https://www.metal-archives.com/search/advanced/searching/songs?songTitle=soul+sacrifice&bandName=power+trip&releaseTitle=&lyrics=&genre=#songs"
 SEARCH_TERM = '+'.join(sys.argv[1:])
@@ -46,5 +46,8 @@ print(Selector(text=html).xpath(xpath_).extract())
 #print(search_results)
 #print(linkElems)
 #print(soup.find_all('a'))
-print(soup.select("tr > td"))
-print(soup.td)
+print(soup.select(".td"))
+print(soup.find_all("advancedResults"))
+print(soup.find_all("searchResultsSong_wrapper"))
+print(linkElems)
+print(soup.find("nightmare logic"))

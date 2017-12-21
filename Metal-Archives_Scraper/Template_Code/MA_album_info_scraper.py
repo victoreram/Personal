@@ -18,10 +18,12 @@ html = r.text
 # Create a BeautifulSoup object from the HTML: soup
 soup = BeautifulSoup(html, "lxml")
 artist, album = soup.title.string.split(' - ')[:2]
-album_info = soup.find_all("tr td")
-xpath_='''//*[(@id = "album_tabs_tracklist")]//td'''
+#album_info = soup.find_all("tr td")
+#xpath_='''//*[(@id = "album_tabs_tracklist")]//td'''
+#tracklist = Selector(text=html).xpath(xpath_).extract()
+xpath_ = '//*[contains(concat( " ", @class, " " ), concat( " ", "wrapWords", " " ))]'
 tracklist = Selector(text=html).xpath(xpath_).extract()
-#xpath_ = '//*[contains(concat( " ", @class, " " ), concat( " ", "wrapWords", " " ))]'
-#track_info = Selector(text=html).xpath(xpath_).extract()
+tracklist = [t.replace("\t", "") for t in tracklist]
 #soup.select("#album_tabs")
-print(album_info)
+#print(album, artist)
+print(tracklist)
