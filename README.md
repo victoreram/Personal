@@ -12,3 +12,4 @@ So far, it can read a band's info from metal-archives.com and store it as a dict
 GOALS:
 1. Turn it into a web crawler
 2. Look up songs and store their info on the master playlist
+# Personal
