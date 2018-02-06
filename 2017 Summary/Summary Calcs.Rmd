@@ -1,0 +1,30 @@
+```{r}
+library(tidyverse)
+
+```
+
+
+```{r}
+master_playlist <- read.csv("MASTER PLAYLIST - Playlist.csv")
+```
+
+```{r}
+head(master_playlist)
+```
+```{r}
+length(unique(master_playlist$Band))
+
+```
+```{r}
+mp.2017 <- master_playlist %>% group_by(Band) %>% filter(Plays >= 1) 
+```
+
+```{r}
+head(master_playlist)
+```
+```{r}
+length(unique(mp.2017$City))
+length(unique(mp.2017$Country))
+
+```
+
