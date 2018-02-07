@@ -9,7 +9,6 @@ RANKS = '23456789TJQKA'
 class Card:
 
     def __init__(self, rank, suit):
-
         self.rank = rank
         self.suit = suit
         
@@ -53,9 +52,7 @@ class Deck:
     def shuffle(self):
         return self.cards.shuffle()
         
-#class Hand:
-#    def __init__(self, cards):
-#        self.cards = cards
-#        
-#    def classify_two(self):
-#        if card_1.suit == card_2
+class Hand:
+    def __init__(self, cards):
+        self.cards = cards
+        
